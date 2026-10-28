@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fake News Detector</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @keyframes scroll {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .animate-scroll {
+      display: inline-block;
+      min-width: 100%;
+      animation: scroll 25s linear infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-r from-blue-500 to-indigo-600 min-h-screen flex flex-col items-center justify-center">
+
+
+    <!-- 🔍 Search Box -->
+    <div class="bg-white p-10 rounded-2xl shadow-xl text-center">
+
+      <h1 class="text-4xl font-bold mb-6 text-gray-800">
+        Fake News Detector 🔍
+      </h1>
+
+      <p class="text-gray-500 mb-6">
+        Check if your news is real or fake
+      </p>
+
+      <form method="POST" action="{% url 'result' %}" class="flex justify-center">
+        {% csrf_token %}
+
+        <input 
+          type="text" 
+          name="query" 
+          placeholder="Enter news..."
+          class="w-80 p-3 border rounded-l-lg focus:outline-none"
+        >
+
+        <button 
+          class="bg-blue-500 text-white px-6 rounded-r-lg hover:bg-blue-600">
+          Check
+        </button>
+      </form>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
